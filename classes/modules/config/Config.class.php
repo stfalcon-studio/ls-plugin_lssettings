@@ -33,4 +33,14 @@ class PluginLssettings_ModuleConfig extends Module
 
         return false;
     }
+
+    public function ClearConfigData($keysData)
+    {
+        if ($this->oMapper->ClearConfigData($keysData)) {
+            $this->Cache_Clean(Zend_Cache::CLEANING_MODE_MATCHING_TAG, array('config'));
+            return true;
+        }
+
+        return false;
+    }
 }

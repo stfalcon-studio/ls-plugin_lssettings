@@ -52,4 +52,13 @@ class PluginLssettings_ModuleConfig_MapperConfig extends Mapper
 
         return false;
     }
+
+    public function ClearConfigData($keysList) {
+        $sql = "DELETE FROM " . Config::Get('db.table.configset') . "
+                WHERE configset_key IN (?a)";
+
+        if ($this->oDb->query($sql, $keysList)) {
+            return true;
+        }
+    }
 }
