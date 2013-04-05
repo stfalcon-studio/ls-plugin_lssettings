@@ -19,7 +19,7 @@ class PluginLssettings extends Plugin
             return $result['result'];
         }
 
-        return false;
+        return true;
     }
 
     /**
