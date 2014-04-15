@@ -5,14 +5,14 @@ php:
 
 before_script:
   - export DISPLAY=:99
-  - mkdir -p /tmp/plugins/lsgallery
-  - mv * /tmp/plugins/lsgallery
-  - mkdir /tmp/ls && git clone git://github.com/stfalcon-studio/livestreet.git /tmp/ls
+  - mkdir -p /tmp/plugins/lssettings
+  - mv * /tmp/plugins/lssettings
+  - mkdir /tmp/ls && git clone git@github.com:stfalcon-studio/ls-plugin_lssettings.git /tmp/ls
   - cp -a /tmp/ls/* ./
   - cp /tmp/ls/.htaccess ./
-  - mkdir -p plugins/lsgallery && cp -a /tmp/plugins/lsgallery/* plugins/lsgallery
-  - mkdir -p ./uploads/images/lsgallery
-  - echo "lsgallery" > ./plugins/plugins.dat
+  - mkdir -p plugins/lssettings && cp -a /tmp/plugins/lssettings/* plugins/lssettings
+  - mkdir -p ./uploads/images/lssettings
+  - echo "lssettings" > ./plugins/plugins.dat
   - git clone git://github.com/stfalcon-studio/ls-plugin_sitemap.git ./plugins/sitemap
   - echo "sitemap" >> ./plugins/plugins.dat
 
@@ -30,7 +30,6 @@ before_script:
   - ./tests/travis/apache_setup.sh
   - ./tests/travis/mysql_setup.sh
   - mysql -u root -B social_test < ./plugins/lsgallery/activate.sql
-  - mysql -u root -B social_test < ./plugins/lsgallery/tests.sql
   - mysql -u root -e "USE social_test; SHOW TABLES;" | wc -l
   - cp ./config/config.test.php.dist config/config.test.php
   - cp ./config/config.test.php.dist config/config.local.php
@@ -51,4 +50,4 @@ before_script:
   - sleep 5
 
 
-script: HTTP_APP_ENV=test cd tests/behat/ && php behat.phar --config='../../plugins/lsgallery/tests/behat/behat.yml' --strict
+script: HTTP_APP_ENV=test cd tests/behat/ && php behat.phar --config='../../plugins/lssettings/tests/behat/behat.yml' --strict
