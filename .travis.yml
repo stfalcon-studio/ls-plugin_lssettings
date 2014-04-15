@@ -7,7 +7,7 @@ before_script:
   - export DISPLAY=:99
   - mkdir -p /tmp/plugins/lssettings
   - mv * /tmp/plugins/lssettings
-  - mkdir /tmp/ls && git clone git@github.com:stfalcon-studio/ls-plugin_lssettings.git /tmp/ls
+  - mkdir /tmp/ls && git clone git://github.com/stfalcon-studio/livestreet.git /tmp/ls
   - cp -a /tmp/ls/* ./
   - cp /tmp/ls/.htaccess ./
   - mkdir -p plugins/lssettings && cp -a /tmp/plugins/lssettings/* plugins/lssettings
@@ -27,7 +27,7 @@ before_script:
   # launch apache, MySQL and PHPUnit Selenium installers
   - ./tests/travis/apache_setup.sh
   - ./tests/travis/mysql_setup.sh
-  - mysql -u root -B social_test < ./plugins/lsgallery/activate.sql
+  - mysql -u root -B social_test < ./plugins/lssettings/activate.sql
   - mysql -u root -e "USE social_test; SHOW TABLES;" | wc -l
   - cp ./config/config.test.php.dist config/config.test.php
   - cp ./config/config.test.php.dist config/config.local.php
