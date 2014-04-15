@@ -17,15 +17,6 @@ class PluginLssettings_HookSettings extends Hook
 
     public function LangInitStart()
     {
-//        $data = array(
-//            'plugin.lsgallery.aldbum_create_rating' => '5',
-//            'plugin.lsgallery.images_new_time' => 60*60*24 ,
-//            'plugin.lsgallery.test_array' => array(
-//                'first' => 'ok',
-//                'second' => 'ok',
-//            ),
-//        );
-//      $this->PluginLssettings_Config_SetConfigData($data);
-        $this->PluginLssettings_Config_GetConfigData();
+        $this->PluginLssettings_Config_ApplyConfigData();
     }
 }

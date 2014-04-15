@@ -10,7 +10,7 @@ class PluginLssettings_ModuleConfig extends Module
         $this->oMapper = Engine::GetMapper(__CLASS__);
     }
 
-    public function GetConfigData()
+    public function ApplyConfigData()
     {
         if (!$data = $this->Cache_Get($this->cacheKey)) {
             $data = $this->oMapper->GetGetConfigData();
