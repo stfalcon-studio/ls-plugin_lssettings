@@ -13,8 +13,6 @@ before_script:
   - mkdir -p plugins/lssettings && cp -a /tmp/plugins/lssettings/* plugins/lssettings
   - mkdir -p ./uploads/images/lssettings
   - echo "lssettings" > ./plugins/plugins.dat
-  - git clone git://github.com/stfalcon-studio/ls-plugin_sitemap.git ./plugins/sitemap
-  - echo "sitemap" >> ./plugins/plugins.dat
 
   # change application working folders for write access
   - chmod -R 0777 ./tmp
